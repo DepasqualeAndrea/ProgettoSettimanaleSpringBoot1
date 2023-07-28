@@ -22,13 +22,13 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GestionePrenotazioniRunner implements CommandLineRunner {
 	@Autowired
-	private UtenteService uDao;
+	private UtenteService uServ;
 	@Autowired
-	private EdificioService eDao;
+	private EdificioService eServ;
 	@Autowired
-	private PrenotazioneService pDao;
+	private PrenotazioneService pServ;
 	@Autowired
-	private PostazioneService postazioneDao;
+	private PostazioneService postazioneServ;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -43,13 +43,13 @@ public class GestionePrenotazioniRunner implements CommandLineRunner {
 			Prenotazione prenIsee = Prenotazione.builder().dataprenotazione(LocalDate.now()).utente(ivan)
 					.postazione(postazione1).build();
 
-			eDao.save(consov);
+			eServ.save(consov);
 			log.info("edificio salvato con successo ");
-			postazioneDao.save(postazione1);
+			postazioneServ.save(postazione1);
 			log.info("postazione salvata con successo ");
-			uDao.save(ivan);
+			uServ.save(ivan);
 			log.info("utente salvato con successo");
-			pDao.save(prenIsee);
+			pServ.save(prenIsee);
 			log.info("prenotazione salvata con successo");
 
 			log.info("utente salvato con successo");
