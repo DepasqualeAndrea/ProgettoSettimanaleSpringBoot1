@@ -43,9 +43,13 @@ public class GestionePrenotazioniRunner implements CommandLineRunner {
 					.postazione(postazione1).build();
 
 			eDao.save(consov);
+			log.info("edificio salvato con successo ");
 			postazioneDao.save(postazione1);
-			pDao.save(prenIsee);
+			log.info("postazione salvata con successo ");
 			uDao.save(ivan);
+			log.info("utente salvato con successo");
+			pDao.save(prenIsee);
+			log.info("prenotazione salvata con successo");
 
 			log.info("utente salvato con successo");
 		} catch (ItemsNotFoundException e) {
