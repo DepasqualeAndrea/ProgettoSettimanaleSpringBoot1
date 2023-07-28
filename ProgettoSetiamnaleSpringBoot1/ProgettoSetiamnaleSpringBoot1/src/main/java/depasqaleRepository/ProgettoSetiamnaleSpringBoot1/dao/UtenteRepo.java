@@ -8,12 +8,12 @@ import depasqaleRepository.ProgettoSetiamnaleSpringBoot1.Entiti.Utente;
 @Repository
 public interface UtenteRepo extends JpaRepository<Utente, Integer> {
 //	// "select u from user where name= :name"
-//	optional<utente> findbyname(string name);
+//	optional<Utente> findbyname(string name);
 //
-//	optional<utente> findbyid(int id);
+//	optional<Utente> findbyid(int id);
 //
 //	// "select u from user where name= :name or prezzo = :prezzo"
-//	// list<pizza> findbynameorprezzo(double prezzo);
+//	// list<Utente> findbyname();
 //
 //	// "select u from user where lower(u.name) like concat(lower(:name), '%')
 //	list<utente> findbynamestartingwithignorecase(string name);
