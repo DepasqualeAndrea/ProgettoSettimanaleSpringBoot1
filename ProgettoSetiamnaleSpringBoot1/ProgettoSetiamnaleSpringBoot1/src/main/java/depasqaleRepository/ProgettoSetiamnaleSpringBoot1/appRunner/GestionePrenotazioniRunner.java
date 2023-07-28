@@ -11,10 +11,10 @@ import depasqaleRepository.ProgettoSetiamnaleSpringBoot1.Entiti.Postazione;
 import depasqaleRepository.ProgettoSetiamnaleSpringBoot1.Entiti.Prenotazione;
 import depasqaleRepository.ProgettoSetiamnaleSpringBoot1.Entiti.Utente;
 import depasqaleRepository.ProgettoSetiamnaleSpringBoot1.Enum.TipoPostazione;
-import depasqaleRepository.ProgettoSetiamnaleSpringBoot1.dao.EdificioDao;
-import depasqaleRepository.ProgettoSetiamnaleSpringBoot1.dao.PostazioneDao;
-import depasqaleRepository.ProgettoSetiamnaleSpringBoot1.dao.PrenotazioneDao;
-import depasqaleRepository.ProgettoSetiamnaleSpringBoot1.dao.UtenteDao;
+import depasqaleRepository.ProgettoSetiamnaleSpringBoot1.dao.EdificioService;
+import depasqaleRepository.ProgettoSetiamnaleSpringBoot1.dao.PostazioneService;
+import depasqaleRepository.ProgettoSetiamnaleSpringBoot1.dao.PrenotazioneService;
+import depasqaleRepository.ProgettoSetiamnaleSpringBoot1.dao.UtenteService;
 import depasqaleRepository.ProgettoSetiamnaleSpringBoot1.exception.ItemsNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,22 +22,23 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GestionePrenotazioniRunner implements CommandLineRunner {
 	@Autowired
-	private UtenteDao uDao;
+	private UtenteService uDao;
 	@Autowired
-	private EdificioDao eDao;
+	private EdificioService eDao;
 	@Autowired
-	private PrenotazioneDao pDao;
+	private PrenotazioneService pDao;
 	@Autowired
-	private PostazioneDao postazioneDao;
+	private PostazioneService postazioneDao;
 
 	@Override
 	public void run(String... args) throws Exception {
 		try {
-			Edificio consov = Edificio.builder().nome("Consov").indirizzo("via roma 43").citta("milano").build();
+			Edificio consov = Edificio.builder().nome("banca").indirizzo("via colombo 23").citta("ascoli piceno")
+					.build();
 
-			Postazione postazione1 = Postazione.builder().descrizione("sportello isee")
+			Postazione postazione1 = Postazione.builder().descrizione("Finanziamenti")
 					.tipoPostazione(TipoPostazione.PRIVATO).edificio(consov).build();
-			Utente ivan = Utente.builder().userName("Ivan").nomeCompleto("Ivan Iansing").email("ivankof@gmail.com")
+			Utente ivan = Utente.builder().userName("manuel").nomeCompleto("manuel centini").email("centini@gmail.com")
 					.build();
 			Prenotazione prenIsee = Prenotazione.builder().dataprenotazione(LocalDate.now()).utente(ivan)
 					.postazione(postazione1).build();
